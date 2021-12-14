@@ -1,0 +1,89 @@
+#include<stdio.h>
+struct node
+{
+	int data;
+	struct node *next;                                                           
+};
+struct node *start;
+void insertbeg(void)
+{
+	struct node *nn;
+	int x;
+	nn = (struct node*)malloc(sizeof(struct node));
+	printf("Enterthe data:");
+	scanf("%d",&x);
+	nn->data = x;                                                                      
+	if(start == NULL)
+	{
+		nn->next = NULL;
+		start = nn;	
+	}
+	else 	
+	{
+		nn->next = start;
+		start = nn;
+	}
+	printf("Insertion Successful");
+	return;
+}
+void insertend(void)
+{
+	struct node *nn,*temp;
+	int x;
+	nn = (struct node*)malloc(sizeof(struct node));
+	printf("Enter data:");
+	scanf("%d",&x);
+	nn->data = x;
+	if(start == NULL)
+	{
+		nn->next = NULL;
+		start = nn;	
+	}
+	else
+	{	
+		temp = start;		
+		while(temp->next != NULL) 
+		{
+			temp = temp->next;
+		}	
+		temp->next = nn;
+		nn->next = NULL;
+	}	
+	printf("Insertion at end is successful");
+return;
+}
+void insertmid(void)
+{
+	struct *nn,*temo,*ptemp;
+	int x,y;
+	nn=(struct node*)malloc(sizeof(struct node));
+	if(start == NULL)
+	{
+		printf("Linked list is empty");
+	return;
+	}
+	printf("Enter the number before which the data has to be inserted:");
+	scanf("%d",&x);
+	ptemp=start;
+	temp = start->next;
+	while(temp->next!=NULL && temp->data == x)
+	{
+		ptemp=temp;
+		temp = temp->next;
+	}
+	if(temp==NULL)
+	{
+		printf("%d is not in linked list",x);
+		return;	
+	}
+	else
+	{
+		printf("Enter the data:");
+		scanf("%d",&v);
+		nn->data = v;
+		ptemp->next = nn;
+		nn->next = temp;
+		printf("Insertion of %d before %d is successful",x,v);	
+	}
+	return;
+}
